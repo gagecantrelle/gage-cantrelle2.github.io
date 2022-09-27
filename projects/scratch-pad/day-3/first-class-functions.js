@@ -13,7 +13,13 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+    return function(t){
+        if(t > base){
+            return true;
+        }else{
+            return false;
+        }
+    }
     
     
     
@@ -27,7 +33,13 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+    return function(t){
+        if(t < base){
+            return true;
+        }else{
+            return false;
+        }
+    }
     
     
     
@@ -41,7 +53,13 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
+  return function(sn){
+    if(sn[0].toLowerCase() == startsWith.toLowerCase()){
+        return true;
+    }else{
+        return false;
+    }
+  }  
     
     
     
@@ -56,7 +74,13 @@ function createStartsWithFilter(startsWith) {
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
-    
+    return function(sn){
+        if(sn[sn.length - 1].toLowerCase() == endsWith.toLowerCase()){
+            return true;
+        }else{
+            return false;
+        }
+      }  
     
     
     // YOUR CODE ABOVE HERE //
@@ -71,8 +95,11 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
-    
+   var narr = []; 
+    for(let i = 0; i < strings.length; i++){
+     narr.push(modify(strings[i]));
+    }
+    return narr;
     
     
     // YOUR CODE ABOVE HERE //
@@ -90,13 +117,15 @@ function modifyStrings(strings, modify) {
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
  var istrue = false;
+ var count = 0;
     for(let i = 0; i < strings.length; i++){
-        if(test(i)){
-            istrue = true;
-        }else{
-            istrue = false;
+        if(test(strings[i])){
+           count++; 
         }
     }
+if(count === strings.length){
+    istrue = true;
+}
 
    return istrue; 
     
