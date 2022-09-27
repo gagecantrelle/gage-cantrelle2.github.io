@@ -89,8 +89,16 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
+ var istrue = false;
+    for(let i = 0; i < strings.length; i++){
+        if(test(i)){
+            istrue = true;
+        }else{
+            istrue = false;
+        }
+    }
+
+   return istrue; 
     
     
     // YOUR CODE ABOVE HERE //
