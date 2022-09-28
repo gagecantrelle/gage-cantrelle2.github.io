@@ -35,7 +35,7 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    if(typeof value === "object" && Array.isArray(value) !== Array && value !== null && !(value instanceof Date)){
+    if(typeof value === "object" && Array.isArray(value) === false && value !== null && !(value instanceof Date)){
        console.log('true');
         return true;
        }else{
@@ -57,7 +57,16 @@ function isObject(value) {
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
     
-    
+    if(typeof value === "object" && Array.isArray(value) === false && value !== null && !(value instanceof Date)){
+        console.log('true');
+         return true;
+        }else if(typeof value === "object" && Array.isArray(value) === true && value !== null && !(value instanceof Date)){
+        console.log('true');
+        return true;
+        }else{
+         console.log('false');
+         return false;
+        }   
     
     
     // YOUR CODE ABOVE HERE //
@@ -84,7 +93,25 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
+    if(typeof value === "object" && Array.isArray(value) === false && value !== null && !(value instanceof Date)){
+        return "object";
+    }else if(typeof value === "object" && Array.isArray(value) === true && value !== null && !(value instanceof Date)){
+        return "array";
+    }else if(typeof value === "object" && Array.isArray(value) === false && value === null && !(value instanceof Date)){
+        return "null";
+    }else if(typeof value === "object" && Array.isArray(value) === false && value !== null && value instanceof Date){
+        return "date";
+    }else if(typeof value === "string"){
+        return "string";
+    }else if(typeof value === "boolean"){
+        return "boolean";
+    }else if(typeof value === "number"){
+        return "number";
+    }else if(typeof value === "function"){
+        return "function";
+    }else if(typeof value === "undefined"){
+        return "undefined";
+    }
     
     
     
