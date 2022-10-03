@@ -66,12 +66,21 @@ var bird = { species: 'bird', name: 'sandy', noises: ['titte', 'honk', 'sneeze',
 animals.push(duck);
 animals.push(cat);
 animals.push(bird);
+console.log(animals);
+console.log(animals.length);
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-
-
+//I chose array
+//because it can hold mutiple values/datatypes
+var friends = [];
+function getRandom(ani){
+  return Math.floor(Math.random() * ani);
+}
+getRandom(animals);
+var num = getRandom(animals);
+friends.push(animals[num].name);
+console.log(friends);
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
  * move onto Part 2 in the file called "functions.js"
