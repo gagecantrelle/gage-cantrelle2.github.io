@@ -81,7 +81,9 @@ getRandom(animals);
 var num = getRandom(animals);
 friends.push(animals[num].name);
 console.log(friends);
-animal[0].friends = friends;
+for(let i = 0; i < animals.length; i++){
+  animals[i].friends = friends;
+}
 console.log(animals);
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
