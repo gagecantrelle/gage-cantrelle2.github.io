@@ -75,12 +75,14 @@ console.log(animals.length);
 //because it can hold mutiple values/datatypes
 var friends = [];
 function getRandom(ani){
-  return Math.floor(Math.random() * ani);
+  return Math.floor(Math.random() * ani.length);
 }
 getRandom(animals);
 var num = getRandom(animals);
 friends.push(animals[num].name);
 console.log(friends);
+animal[0].friends = friends;
+console.log(animals);
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
  * move onto Part 2 in the file called "functions.js"
