@@ -35,23 +35,13 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    var str = "";
-    var count = 0;
+    var arr = [];
     for(let key in object){
-    var value = object[key];
-    console.log(typeof value)
-        if(typeof value === String){
-         if(count !== 3){
-            str += object[key] + " ";
-          }else{
-            str += object[key];
-          }
-          count++;
-      }   
-
+        if(typeof object[key] === 'string'){
+        arr.push(object[key]);
     }
-    console.log(str);
-    return str;
+}
+    return arr.join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -126,7 +116,7 @@ if(object.noises.length > 0){
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+return string.includes(word);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -134,7 +124,9 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    object.friends.push(name);
+    console.log(object.friends);
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -142,7 +134,14 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+var istrue = false;
+var arr = object.friends;
+for(let i = 0; i < arr.length; i++){
+    if(arr[i] === name){
+        istrue = true;
+    }
+}
+return true;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -150,8 +149,18 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
+var arr = [];
+for(let i = 0; i < array.length; i++){
+if(array[i].friends.includes(name)){
 
+}else{
+    arr.push(array[i].name);
 }
+}
+return arr;
+}
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
@@ -174,7 +183,15 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+var arr = [];
+var cur = undefined;
+for(let i = 0; i < array.length; i++){
+if(array[i] !== cur){
+    arr.push(array[i]);
+    cur = array[i];
+}
+}
+return arr;
 }
 
 //////////////////////////////////////////////////////////////////////
