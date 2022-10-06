@@ -100,13 +100,15 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
+var obj = object.noises;
+if(obj === undefined){
+    return "there are no noises";
+}
 
 if(object.noises.length > 0){
     var arr = object.noises.join(' ');
     return arr;
 }else if(object.noises.length === 0){
-    return "there are no noises";
-}else if(!(object.hasOwnProperty('noises'))){
     return "there are no noises";
 }
 }
@@ -136,12 +138,15 @@ return object;
 function isFriend(name, object) {
 var istrue = false;
 var arr = object.friends;
+if(arr === undefined){
+    return istrue;
+}
 for(let i = 0; i < arr.length; i++){
     if(arr[i] === name){
         istrue = true;
     }
 }
-return true;
+return istrue;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -152,11 +157,15 @@ function nonFriends(name, array) {
 var arr = [];
 for(let i = 0; i < array.length; i++){
 if(array[i].friends.includes(name)){
-
+    
 }else{
-    arr.push(array[i].name);
+    if(!(array[i].name === name)){
+        arr.push(array[i].name);
+    }
+    
 }
 }
+console.log(arr, "ggggggggggg");
 return arr;
 }
 
@@ -167,7 +176,9 @@ return arr;
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+var obj = object;
+obj[key] = value;
+return obj;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -175,7 +186,15 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+for(let key in object){
+    for(let i = 0; i < array.length; i++){
+        if(array[i] === key){
+           delete object[key];
+        }
+    }
+}
+console.log(object);
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -187,8 +206,10 @@ var arr = [];
 var cur = undefined;
 for(let i = 0; i < array.length; i++){
 if(array[i] !== cur){
+   if(!(arr.includes(array[i]))){
     arr.push(array[i]);
     cur = array[i];
+   }
 }
 }
 return arr;
