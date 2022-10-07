@@ -6,7 +6,7 @@
 function triangles(num) {
 var str = '';
 var arr = [];
-for(let i = 0; i <= num; i++){
+for(let i = 0; i < num; i++){
   str += '#';
   arr.push(str);
   console.log(str);
@@ -35,8 +35,20 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
-
+function drawChessboard(num) {
+var str = '';
+for(let i = 0; i < num; i++){
+  for(let j = 0; j < num; j++){
+   var sum = j + i;
+    if(sum % 2 === 0){
+      str += ' ';
+    }else if(sum % 1 === 0){
+      str += '#';
+    }
+  }
+  str += '\n';
+}
+console.log(str);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
