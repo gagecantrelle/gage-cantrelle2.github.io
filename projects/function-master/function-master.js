@@ -3,11 +3,16 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
+    //creat an emepty array
     var arr = [];
+    //loop through the kep values in the object
     for(let key in object){
+        //push the current key value into a new array
       arr.push(object[key]);
     }
+    //pritn to the console arr
     console.log(arr);
+    // return a array contaning all of a object key values
     return arr;
 } 
 

@@ -3,11 +3,17 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 function min(num1, num2) {
+//check the two given numbers to see if the first number is greter than the second number
 if(num1 < num2){
+  //return the first number 
   return num1;
+  //check the two given numbers to see if the second number is greter than the first number
 }else if(num1 > num2){
+  //return the second number
   return num2;
+  //check the two given numbers to see if the first number is equal to the second number
 }else if(num1 === num2){
+  //return the first or second number
   return num1;
 }
 }
@@ -17,9 +23,13 @@ if(num1 < num2){
 ////////////////////////////////////////////////////////////////////////////////
 
 function isEven(num) {
+  //check if the given number is even
 if(num % 2 === 0){
+  //return true if even
   return true;
+  //run if false
 }else{
+  //return false
   return false;
 }
 }
@@ -29,12 +39,17 @@ if(num % 2 === 0){
 ////////////////////////////////////////////////////////////////////////////////
 
 function countChars(word, char) {
+  //creat a varable that hold the amount of targeted characters
 var count = 0;
+// loop through a sing string that is a word
 for(let i = 0; i < word.length; i++){
+  // check if the current letter in the word is equal to the targeted characters
   if(word[i] === char){
+    //incrase count value by one 
 count++;
   }
 }
+//return count
 return count;
 }
 
@@ -43,12 +58,17 @@ return count;
 ////////////////////////////////////////////////////////////////////////////////
 
 function countBs(word) {
+  //creat a varable that hold the amount of B charcters
   var count = 0;
+  // loop through a sing string that is a word
   for(let i = 0; i < word.length; i++){
+    // check if the current letter in the word is equal to the B character
     if(word[i] === 'B'){
+      //incrase count value by one 
   count++;
     }
   }
+  //return count
   return count;
 }
 
