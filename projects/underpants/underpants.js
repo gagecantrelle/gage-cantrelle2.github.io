@@ -276,7 +276,27 @@ _.unique = function(array){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-
+_.map = function(coll, func){
+    //creaft a new array
+    var arr = [];
+    //check if coll is an array or object
+    if(Array.isArray(coll)){
+        //loop through all values in array
+       for(let i = 0; i < coll.length; i++){
+        //push the function return value in arr
+        arr.push(func(coll[i], i, coll));
+       }
+       // run if coll is object
+    }else{
+        //loop through all values in object
+       for(let key in coll){
+  //push the function return value in arr
+  arr.push(func(coll[key], key, coll));
+       }
+    }
+//return arr    
+return arr;
+}
 
 /** _.pluck
 * Arguments:

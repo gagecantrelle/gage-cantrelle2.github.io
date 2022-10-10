@@ -21,17 +21,26 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
+    //creat a varable that holds a emepty string and a varable that hold a value of zero
     var str = "";
     var count = 0;
+    //loop through all keys in an object
     for(let key in object){
+        //check if count is not equal to 3
       if(count !== 3){
+        //give str the key name and a space
         str += key + " ";
+        //run if count is equal to 3
       }else{
+        //give str the key name
         str += key;
       }
+      //increas count value by 1
       count++;
     }
+    //print to the console the curent str
     console.log(str);
+    //return str
     return str;
 }
 
