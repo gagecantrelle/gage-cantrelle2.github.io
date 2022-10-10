@@ -46,8 +46,26 @@ _.identity = function(value){
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
-_.typeOf = function(){
-
+_.typeOf = function(value){
+    if(typeof value === "object" && Array.isArray(value) === false && value !== null && !(value instanceof Date)){
+        return "object";
+    }else if(typeof value === "object" && Array.isArray(value) === true && value !== null && !(value instanceof Date)){
+        return "array";
+    }else if(typeof value === "object" && Array.isArray(value) === false && value === null && !(value instanceof Date)){
+        return "null";
+    }else if(typeof value === "object" && Array.isArray(value) === false && value !== null && value instanceof Date){
+        return "date";
+    }else if(typeof value === "string"){
+        return "string";
+    }else if(typeof value === "boolean"){
+        return "boolean";
+    }else if(typeof value === "number"){
+        return "number";
+    }else if(typeof value === "function"){
+        return "function";
+    }else if(typeof value === "undefined"){
+        return "undefined";
+    }
 }
 
 
@@ -105,7 +123,18 @@ _.typeOf = function(){
 *   _.indexOf(["a","b","c"], "c") -> 2
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
-
+_.indexOf = function(arr, value){
+//loop through all the array values
+for(let i = 0; i < arr.length; i++){
+    //check if array has the targetd value
+    if(arr[i] === value){
+        //return the index of curent value in array
+        return i;
+    }
+}
+// return -1 if array dosent have targetd value
+return -1;
+}
 
 /** _.contains
 * Arguments:
@@ -121,7 +150,18 @@ _.typeOf = function(){
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
-
+_.contains = function(arr, value){
+    //loop through all values in array
+    for(let i = 0; i < arr.length; i++){
+        //check if arr has targeted value
+        if(arr[i] === value){
+            //return true if array has targeted value
+            return true;
+        }
+    }
+    //return falue if array dosn't have targeted value
+    return false;
+}
 
 /** _.each
 * Arguments:
@@ -148,7 +188,7 @@ func(coll[i], i, coll);
    }
 }else{
 //loop through the collectionwith for in loop
-for(let key in object){
+for(let key in coll){
     // collection[i] => curent item in the array
     func(coll[key], key, coll);
 }
