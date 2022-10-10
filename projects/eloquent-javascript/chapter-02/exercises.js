@@ -36,18 +36,28 @@ function fizzBuzz() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(num) {
+//decalare a chessboard string
 var str = '';
+// loop how many times by given number
 for(let i = 0; i < num; i++){
+  //loop for the next line of string
   for(let j = 0; j < num; j++){
-   var sum = j + i;
+  //combine the two loops in puts
+    var sum = j + i;
+    //sheck if sum is even
     if(sum % 2 === 0){
+      // add a space to the chestboard string
       str += ' ';
+      //sheck if sum is odd
     }else if(sum % 1 === 0){
+      // add a # to the chestboard string
       str += '#';
     }
   }
+  // move string to new line after second loop
   str += '\n';
 }
+// log chestboard to console.
 console.log(str);
 }
 
