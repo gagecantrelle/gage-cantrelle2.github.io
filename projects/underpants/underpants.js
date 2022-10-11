@@ -115,11 +115,21 @@ _.first = function(arr, num){
         //run if arr is array
     }else{
         // check if number is a number
-        if(num !== Number){
+        if(typeof num !== 'number'){
             // return array frist value
-          return array[0];
-          //reun if true
+          return arr[0];
+          //run if true
        }else{
+        //check if num is negative
+        if(num < 0){
+            //return empty array
+            return [];
+        }
+        //check if num greater than array length
+        if(num > arr.length){
+            //return hole array
+            return arr;
+        }
              //loop through array
             for(let i = 0; i < num; i++){
                 //push curent array value in new array
@@ -148,7 +158,41 @@ _.first = function(arr, num){
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
-
+_.last = function(arr, num){
+    //creat a empty array
+    var array = [];
+    //check if arr is a array
+    if(Array.isArray(arr) === false){
+        // return empty array 
+        return [];
+        //run if arr is array
+    }else{
+        // check if number is a number
+        if(typeof num !== 'number'){
+            // return array frist value
+          return arr[arr.length - 1];
+          //run if true
+       }else{
+        //check if num is negative
+        if(num < 0){
+            //return empty array
+            return [];
+        }
+        //check if num greater than array length
+        if(num > arr.length){
+            //return hole array
+            return arr;
+        }
+             //loop through array
+            for(let i = 1; i < num + 1; i++){
+                //push curent array value in new array
+             array.push(arr[i]);
+            }
+        }
+    }
+    //return new array
+    return array;
+}
 
 /** _.indexOf
 * Arguments:
@@ -196,7 +240,7 @@ _.contains = function(arr, value){
     //loop through all values in array
     for(let i = 0; i < arr.length; i++){
         //check if arr has targeted value
-        if(arr[i] === value){
+        if(arr[i] === value ? true : false){
             //return true if array has targeted value
             return true;
         }
@@ -249,7 +293,8 @@ for(let key in coll){
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 _.unique = function(array){
-    return [...new set(array)];
+    //retun new array with no duplicate
+    return [...new Set(array)];
 }
 
 /** _.filter
@@ -267,7 +312,20 @@ _.unique = function(array){
 * Extra Credit:
 *   use _.each in your implementation
 */
-
+_.filter = function(arr, func){
+  //creat empty array
+  var array = [];
+//loop through array
+    for(let i = 0; i < arr.length; i++){
+        //check if the given function is passing the curent value being push in it
+    if(func(arr[i], i, arr)){
+        //push curent value in new array
+        array.push(arr[i])
+    }
+    }
+    //return new array
+    return array;
+}
 
 /** _.reject
 * Arguments:
@@ -281,7 +339,20 @@ _.unique = function(array){
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
-
+_.reject = function(arr, func){
+    //creat empty array
+  var array = [];
+  //loop through array
+      for(let i = 0; i < arr.length; i++){
+          //check if the given function is not passing the curent value being push in it
+      if(!func(arr[i], i, arr)){
+          //push curent value in new array
+          array.push(arr[i])
+      }
+      }
+      //return new array
+      return array;
+}
 
 /** _.partition
 * Arguments:
@@ -301,7 +372,24 @@ _.unique = function(array){
 *   }); -> [[2,4],[1,3,5]]
 }
 */
-
+_.partition = function(arr, func){
+    //creat an array with two arrays in it
+    var array = [[],[]];
+    //loop though arr
+    for(let i = 0; i < arr.length; i++){
+        //check if curent value in array pass the given function
+        if(func(arr[i], i, arr)){
+            //push curent value in array in new array
+            array[0].push(arr[i]);
+            //run if func return false
+        }else{
+            //push curent value in array in new array
+            array[1].push(arr[i]);
+        }
+    }
+    //return new array
+    return array;
+}
 
 /** _.map
 * Arguments:
@@ -350,8 +438,12 @@ return arr;
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-
-
+_.pluck = function(arr, prop){
+    //creat a empty array
+    var array = arr.map(arr => { return arr[prop];})
+    //return array
+return array;
+}
 /** _.every
 * Arguments:
 *   1) A collection
@@ -446,7 +538,7 @@ _.some = function(coll, func){
            //loop through array
            for(let i = 0; i < coll.length; i++){
                //determine if coll is true
-               if(!coll[i]){
+               if(coll[i]){
                return true;
                }
            }
@@ -454,12 +546,11 @@ _.some = function(coll, func){
             //loop through object
             for(let key in coll){
                  //determine if coll is true
-                 if(!coll[key]){
+                 if(coll[key]){
                    return true;
                    }
             }
        }
-       
             //else it was   
            }else{
                //determine if coll is an array
@@ -467,7 +558,7 @@ _.some = function(coll, func){
                    //loop through array
                    for(let i = 0; i < coll.length; i++){
                        //determine if the result of invoking the func on the paramter is true
-                       if(func(coll[i], i, coll) === false){
+                       if(func(coll[i], i, coll) === true){
                        return true;
                        }
                    }
@@ -475,7 +566,7 @@ _.some = function(coll, func){
                     //loop through object
                     for(let key in coll){
                          //determine if the result of invoking the func on the paramter is true
-                         if(func(coll[key], key, coll) === false){
+                         if(func(coll[key], key, coll) === true){
                            return true;
                            }
                     }
@@ -520,7 +611,9 @@ _.some = function(coll, func){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-
+_.extend = function(){
+    
+}
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
