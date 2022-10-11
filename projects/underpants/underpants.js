@@ -47,23 +47,41 @@ _.identity = function(value){
 * _.typeOf([1,2,3]) -> "array"
 */
 _.typeOf = function(value){
+    //check if value equal to object
     if(typeof value === "object" && Array.isArray(value) === false && value !== null && !(value instanceof Date)){
+        //return string of object
         return "object";
+        //check if value equal to array
     }else if(typeof value === "object" && Array.isArray(value) === true && value !== null && !(value instanceof Date)){
+        //return string of array
         return "array";
+        //check if value equal to null
     }else if(typeof value === "object" && Array.isArray(value) === false && value === null && !(value instanceof Date)){
+        //return string of null
         return "null";
+        //check if value equal to date
     }else if(typeof value === "object" && Array.isArray(value) === false && value !== null && value instanceof Date){
+        //return string of date
         return "date";
+        //check if value equal to string
     }else if(typeof value === "string"){
+        //return string of string
         return "string";
+        //check if value equal to boolean
     }else if(typeof value === "boolean"){
+        //return string of boolean
         return "boolean";
+        //check if value equal to number
     }else if(typeof value === "number"){
+        //return string of number
         return "number";
+        //check if value equal to function
     }else if(typeof value === "function"){
+        //return string of function
         return "function";
+        //check if value equal to undefind
     }else if(typeof value === "undefined"){
+        //return string of undefind
         return "undefined";
     }
 }
@@ -87,7 +105,31 @@ _.typeOf = function(value){
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
-
+_.first = function(arr, num){
+    //creat a empty array
+    var array = [];
+    //check if arr is a array
+    if(Array.isArray(arr) === false){
+        // return empty array 
+        return [];
+        //run if arr is array
+    }else{
+        // check if number is a number
+        if(num !== Number){
+            // return array frist value
+          return array[0];
+          //reun if true
+       }else{
+             //loop through array
+            for(let i = 0; i < num; i++){
+                //push curent array value in new array
+             array.push(arr[i]);
+            }
+        }
+    }
+    //return new array
+    return array;
+}
 
 /** _.last
 * Arguments:
@@ -330,7 +372,51 @@ return arr;
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+_.every = function(coll, func){
+    //determine if func was not passed in
+    if(func === undefined){
+ //determine if coll is an array
+ if(Array.isArray(coll)){
+    //loop through array
+    for(let i = 0; i < coll.length; i++){
+        //determine if coll is true
+        if(!coll[i]){
+        return false;
+        }
+    }
+}else{ // it an object
+     //loop through object
+     for(let key in coll){
+          //determine if coll is true
+          if(!coll[key]){
+            return false;
+            }
+     }
+}
 
+     //else it was   
+    }else{
+        //determine if coll is an array
+        if(Array.isArray(coll)){
+            //loop through array
+            for(let i = 0; i < coll.length; i++){
+                //determine if the result of invoking the func on the paramter is true
+                if(func(coll[i], i, coll) === false){
+                return false;
+                }
+            }
+        }else{ // it an object
+             //loop through object
+             for(let key in coll){
+                  //determine if the result of invoking the func on the paramter is true
+                  if(func(coll[key], key, coll) === false){
+                    return false;
+                    }
+             }
+        }
+    }
+return true;
+}
 
 /** _.some
 * Arguments:
@@ -352,6 +438,52 @@ return arr;
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+_.some = function(coll, func){
+    //determine if func was not passed in
+     if(func === undefined){
+        //determine if coll is an array
+        if(Array.isArray(coll)){
+           //loop through array
+           for(let i = 0; i < coll.length; i++){
+               //determine if coll is true
+               if(!coll[i]){
+               return true;
+               }
+           }
+       }else{ // it an object
+            //loop through object
+            for(let key in coll){
+                 //determine if coll is true
+                 if(!coll[key]){
+                   return true;
+                   }
+            }
+       }
+       
+            //else it was   
+           }else{
+               //determine if coll is an array
+               if(Array.isArray(coll)){
+                   //loop through array
+                   for(let i = 0; i < coll.length; i++){
+                       //determine if the result of invoking the func on the paramter is true
+                       if(func(coll[i], i, coll) === false){
+                       return true;
+                       }
+                   }
+               }else{ // it an object
+                    //loop through object
+                    for(let key in coll){
+                         //determine if the result of invoking the func on the paramter is true
+                         if(func(coll[key], key, coll) === false){
+                           return true;
+                           }
+                    }
+               }
+           }
+       return false;
+       }
+       
 
 
 /** _.reduce

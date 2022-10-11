@@ -168,18 +168,25 @@ return istrue;
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
+    // creat a empty array
 var arr = [];
+//loop through the given array
 for(let i = 0; i < array.length; i++){
+    //check if array includes name
 if(array[i].friends.includes(name)){
-    
+    // fun if false
 }else{
+    //if name name in array is not equal to given name
     if(!(array[i].name === name)){
+        //push curent array name in new array
         arr.push(array[i].name);
     }
     
 }
 }
+//print to the console new array test
 console.log(arr, "ggggggggggg");
+// return new array
 return arr;
 }
 
