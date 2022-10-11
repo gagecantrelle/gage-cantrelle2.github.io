@@ -611,7 +611,7 @@ _.some = function(coll, func){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-_.extend = function(){
+_.extend = function(obj){
     
 }
 //////////////////////////////////////////////////////////////////////

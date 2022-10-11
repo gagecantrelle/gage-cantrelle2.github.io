@@ -49,12 +49,16 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
+    //creat empty array
     var arr = [];
+    //loop throgh the given object
     for(let key in object){
+        //check if the object key value is a string
         if(typeof object[key] === 'string'){
+            //push the curent key value into an array
         arr.push(object[key]);
     }
-}
+}// return a single string combine with all of the key values in arr
     return arr.join(' ');
 }
 
@@ -63,9 +67,13 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
+    //check if the given collection is an array or object
     if(Array.isArray(collection)){
+        //return if a string array if collection is an array
         return "array";
+        //run ic collection is not an array
     }else{
+         //return if a string object if collection is an object
         return "object";
     }
 }
@@ -75,6 +83,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
+    //return the given string but the frist letter captlize
     return string[0].toUpperCase() + string.slice(1);
 }
 
@@ -83,11 +92,15 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
+    //creat an array of worrds from a single string and a empty array
     var sp = string.split(' ');
     var arr = [];
+    //loop thtough sp
 for(let i = 0; i < sp.length; i++){
+    //change the curent string to frist letter to uppercase
     arr.push(sp[i][0].toUpperCase() + sp[i].slice(1));
 }
+//return arr valuse as one string
 return arr.join(' ');
 }
 //////////////////////////////////////////////////////////////////////
@@ -95,7 +108,9 @@ return arr.join(' ');
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
+    //creat a varaible that take a key value name from an object and chagne it to the same word but the frist letter is captlise
 var capname = object.name[0].toUpperCase() + object.name.slice(1);
+//return a string that say "welcome (capname)!"
 return "Welcome " + capname + "!";
 }
 
@@ -104,8 +119,11 @@ return "Welcome " + capname + "!";
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+    //creat a varaible that take a key value name from an object and chagne it to the same word but the frist letter is captlise
     var capname = object.name[0].toUpperCase() + object.name.slice(1);
+    //creat a varaible that take a key value species from an object and chagne it to the same word but the frist letter is captlise
     var capspecies = object.species[0].toUpperCase() + object.species.slice(1);
+    //return a string that say "(capname) is a (capspecies)"
     return capname + " is a " + capspecies;
 }
 
@@ -114,15 +132,22 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
+    //creat a varabile that hold the given object key value 
 var obj = object.noises;
+//check if the given object has a key value of noises
 if(obj === undefined){
+    //return a string saying that noisies have no value
     return "there are no noises";
 }
-
+//check if the given object nosies has a length greater then 0
 if(object.noises.length > 0){
+    //creat a varaible that combine all the key values of noises in to a single string
     var arr = object.noises.join(' ');
+    //return a single string
     return arr;
+    //check if nosies have a length equal to 0
 }else if(object.noises.length === 0){
+     //return a string saying that noisies have no value
     return "there are no noises";
 }
 }
@@ -132,6 +157,7 @@ if(object.noises.length > 0){
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
+    //return true or fasle if the given string has the targed word
 return string.includes(word);
 }
 
@@ -140,8 +166,11 @@ return string.includes(word);
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
+    //add the given name to the given object key of friendes array
     object.friends.push(name);
+    //log the given object friends array
     console.log(object.friends);
+    //return the given object
 return object;
 }
 
@@ -150,16 +179,23 @@ return object;
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
+    //creact a varaible that holds a false value and a variable that hold the given object friends key value
 var istrue = false;
 var arr = object.friends;
+//check if arr is undefind
 if(arr === undefined){
+    //return istrue
     return istrue;
 }
+//loop through arr
 for(let i = 0; i < arr.length; i++){
+    //check the curent value in arr is equal to the targeted name
     if(arr[i] === name){
+        //set is true to true
         istrue = true;
     }
 }
+//return istrue 
 return istrue;
 }
 
@@ -197,8 +233,11 @@ return arr;
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
+ //creat a vvariable that is equal to the given object   
 var obj = object;
+//update the created object with the given key and value, by changing the value or adding a new value
 obj[key] = value;
+//return the updated object 
 return obj;
 }
 
@@ -207,14 +246,20 @@ return obj;
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+    //loop through the given object
 for(let key in object){
+    //loop through the curent value in the given object
     for(let i = 0; i < array.length; i++){
+        //check if the curent value in the array is equal to the curent key
         if(array[i] === key){
+            //deleat the curent key
            delete object[key];
         }
     }
 }
+//print to the console the given object
 console.log(object);
+//return the given object
 return object;
 }
 
@@ -223,16 +268,23 @@ return object;
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
+    //creat a variable that is an empty array and a variable that equal to undefind
 var arr = [];
 var cur = undefined;
+//loop through array
 for(let i = 0; i < array.length; i++){
+    //check if the curent value in the array is not equal to cur
 if(array[i] !== cur){
+    //check if arr has a calue equal to the array curent value
    if(!(arr.includes(array[i]))){
+    //add the curent value in the array to arr
     arr.push(array[i]);
+    //set cur to equal to the curetn value in the array
     cur = array[i];
    }
 }
 }
+//return arr
 return arr;
 }
 
