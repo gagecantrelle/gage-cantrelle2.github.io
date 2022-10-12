@@ -12,14 +12,24 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
+
+    //loop a 100 times
 for(let i = 1; i <= 100; i++){
+    //check if the curent value of i is divisable by 3 and 5 (15)
     if(i % 3 === 0 && i % 5 === 0){
+        //print to the console the string "FizzBuzz"
         console.log("FizzBuzz");
+        //check if the curent value of i is divisable by 3
     }else if(i % 3 === 0){
+        //print to the console the string "Fizz"
         console.log("Fizz");
+        //check if the curent value of i is divisable by 5
     }else if(i % 5 === 0){
+        //print to the console the string "FizzBuzz"
         console.log("Buzz");
+        //run if all if statement return false
     }else{
+        //print to the console the curent value of i
         console.log(i);
     }
 }

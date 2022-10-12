@@ -12,7 +12,10 @@
  */
 function printArrayValues(array) {
   // YOUR CODE BELOW HERE //
+
+  //loop through the given array
   for(let i = 0; i <= array.length; i++){
+    //print to the console the curent value of the given array
     console.log(array[i]);
   }
   
@@ -27,7 +30,10 @@ function printArrayValues(array) {
  */
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
+
+  //loop through the given array backwords
   for(let i = array.length -1; i >= 0; i--){
+     //print to the console the curent value of the given array
     console.log(array[i]);
   }
   
@@ -41,10 +47,15 @@ function printArrayValuesInReverse(array) {
  */
 function getObjectKeys(object) {
   // YOUR CODE BELOW HERE //
+
+  //creat an empty array
   var arr =[];
+  //loop though the given object
   for(let key in object){
+    //push the curent key in object into to arr
     arr.push(key);
   }
+  // return arr
   return arr;
   
   
@@ -57,8 +68,10 @@ function getObjectKeys(object) {
  */
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
-  var arr =[];
+  
+  //loop through the given object
   for(let key in object){
+    //print to the console the curent key in the given object
     console.log(key);
   }
   
@@ -73,10 +86,15 @@ function printObjectKeys(object) {
  */
 function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
+
+  // creat an empty array
   var arr =[];
+  //loop through the given object
   for(let key in object){
+    //push the curent key value in the given object into arr
     arr.push(object[key]);
   }
+  //return arr
   return arr;
   
   
@@ -90,8 +108,10 @@ function getObjectValues(object) {
  */
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  var arr =[];
+
+  //loop through the given object
   for(let key in object){
+     //print to the console the curent key value in the given object
     console.log(object[key]);
   }
  
@@ -106,10 +126,15 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
+
+  //creat a variable that hold a value of zero
   var count = 0;
+  //loop through the given object
   for(let key in object){
+    //increase the count value by one for each key in the given object
     count++;
   }
+  //return count
   return count;
   
   
@@ -123,11 +148,17 @@ function getObjectLength(object) {
  */
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
+
+  //creat a empty array
   var arr =[];
+  //loop throught the given object
   for(let key in object){
+    //push the curent key value in the given object into arr
     arr.push(object[key]);
   }
+  //loop through all values in arr backwords
  for(let i = arr.length - 1; i >= 0; i--){
+  //print to the console the curen value in arr
 console.log(arr[i]);
  }
   

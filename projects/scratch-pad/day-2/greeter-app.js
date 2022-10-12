@@ -35,13 +35,22 @@
 
 function greeter(hour) {
     // YOUR CODE BELOW HERE //
+
+    //check if the given paramter hour is betwen 0 and 11
     if(hour >= 0 && hour <= 11){
+        //print to the console the sting "Good Morning!"
 console.log("Good Morning!");
+//check if the given paramter hour is betwen 12 and 16
     }else if(hour >= 12 && hour <= 16){
+        //print to the console the sting "Good Afternoon!"
 console.log("Good Afternoon!");
+//check if the given paramter hour is betwen 17 and 21
     }else if(hour >= 17 && hour <= 21){
+        //print to the console the sting "Good Evening!"
 console.log("Good Evening!");
+//check if the given paramter hour is betwen 22 and 24
     }else if(hour >= 22 && hour <= 24){
+        //print to the console the sting "Good Night!"
 console.log("Good Night!");
     }
     
