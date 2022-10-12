@@ -23,16 +23,25 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
+
+    //creat an empty array
   var arr = [];
+  //check if the given paramter start is greater than the given paramter end
   if(start > end){
+    //loop from start to end
     for(let i = start; i >= end; i--){
+      //push the curent value of i into arr
         arr.push(i);
     }
+    //run if the given paramter start is less than the given paramter end
   }else{
+    //loop from start to end
     for(let i = start; i <= end; i++){
+       //push the curent value of i into arr
         arr.push(i);
     } 
   }  
+  //return arr
     return arr;
     
     // YOUR CODE GOES ABOVE HERE //

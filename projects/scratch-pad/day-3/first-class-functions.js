@@ -13,10 +13,16 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
+  
+    //retutn the result of function that take a paramter of t
     return function(t){
+        //check if the given paramter of t is greater than paramter of base
         if(t > base){
+            //return true
             return true;
+            //run if false
         }else{
+            //return false
             return false;
         }
     }
@@ -33,10 +39,16 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
+
+    //retutn the result of function that take a paramter of t
     return function(t){
+          //check if the given paramter of t is greater than paramter of base
         if(t < base){
+            //return true
             return true;
+            //run if false
         }else{
+            //return false
             return false;
         }
     }
@@ -53,10 +65,15 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
+      //retutn the result of function that take a paramter of sn
   return function(sn){
+    //check if the frist lette from the given paramter sn that lowercase is equal to the given paramter startsWith that lowercase
     if(sn[0].toLowerCase() == startsWith.toLowerCase()){
+        //return true
         return true;
+        //run if false
     }else{
+        // return false
         return false;
     }
   }  
@@ -74,10 +91,15 @@ function createStartsWithFilter(startsWith) {
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
+    //retutn the result of function that take a paramter of sn
     return function(sn){
+        //check if the last lette from the given paramter sn that lowercase is equal to the given paramter startsWith that lowercase
         if(sn[sn.length - 1].toLowerCase() == endsWith.toLowerCase()){
+            //return true
             return true;
+            //run if false
         }else{
+            //return false
             return false;
         }
       }  
@@ -95,10 +117,15 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
+
+    //creat a empty array
    var narr = []; 
+   //loop through the given string length
     for(let i = 0; i < strings.length; i++){
+        //push the curent modify string in to narr
      narr.push(modify(strings[i]));
     }
+    //return narr
     return narr;
     
     
@@ -116,17 +143,24 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
+
+    //creat a variable that holds the value of false and a varaible that hold a value of 0
  var istrue = false;
  var count = 0;
+ //loop through the string length
     for(let i = 0; i < strings.length; i++){
+        //check if the test function return true
         if(test(strings[i])){
+            //increase the value of count by one
            count++; 
         }
     }
+    //check if the value of cout is equal to the string length
 if(count === strings.length){
+    //set istrue to true
     istrue = true;
 }
-
+//return is true
    return istrue; 
     
     

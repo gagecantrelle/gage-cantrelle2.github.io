@@ -93,23 +93,42 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
+
+    //check if the given value is an object
     if(typeof value === "object" && Array.isArray(value) === false && value !== null && !(value instanceof Date)){
+        //return a string that says "object"
         return "object";
+        //check if the given value is an array
     }else if(typeof value === "object" && Array.isArray(value) === true && value !== null && !(value instanceof Date)){
+        //return a string that says "array"
         return "array";
+        //check if the given value is null
     }else if(typeof value === "object" && Array.isArray(value) === false && value === null && !(value instanceof Date)){
+        //return a string that says "null"
         return "null";
+        //check if the given value is an date
     }else if(typeof value === "object" && Array.isArray(value) === false && value !== null && value instanceof Date){
+        //return a string that says "date"
         return "date";
+        //check if the given value is an string
     }else if(typeof value === "string"){
+        //return a string that says "string"
         return "string";
+        //check if the given value is an boolean
     }else if(typeof value === "boolean"){
+        //return a string that says "boolean"
         return "boolean";
+        //check if the given value is an number
     }else if(typeof value === "number"){
+        //return a string that says "number"
         return "number";
+        //check if the given value is an function
     }else if(typeof value === "function"){
+        //return a string that says "function"
         return "function";
+        //check if the given value is undefind
     }else if(typeof value === "undefined"){
+        //return a string that says "undefind"
         return "undefined";
     }
     

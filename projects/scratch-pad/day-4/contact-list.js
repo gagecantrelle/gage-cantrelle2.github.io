@@ -35,15 +35,17 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
+    //creat an empty object and then assign it a key of id that equal the given id, a key of namefrist that equal the given namefrist, and a key of namelast that equal the given namelast  
 var obj = {};
 obj.id = id;
 obj.nameFirst = nameFirst;
 obj.nameLast = nameLast;
 
+// the created object
 return obj;
 } 
 
-
+//make a function call makecontactlist
 function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
@@ -53,31 +55,48 @@ function makeContactList() {
     return {
         // we implemented the length api for you //
         length: function() {
+            //return contacts length
             return contacts.length;
         },
+        //creat a function that take in a contact paramter
         addContact: function(contact){
+            //push the given contact paramter in to the contacts array
             contacts.push(contact);
         },
+        //creat a function that thake in a paramter called fullname
         findContact: function(fullName){
+            //creat a varaibal that will hold mutiple strings from the given paramter fullName
             var arr = fullName.split(' ');
+            //loop through the contacts array
             for(let i = 0; i <= contacts.length; i++){
+                //check if the curent value in contacts namefirst key is equalt to the frist string in arr and if the curent value in contacts namelast key is equalt to the second string in arr
                if(contacts[i].nameFirst === arr[0] && contacts[i].nameLast === arr[1]){
+                //return the curent value in contacts
                return contacts[i];
+               //run if false
                }else{
+                //return undefind
                 return undefined;
                }
             }
         },
+        //creat a function that take in a paramter called contact
         removeContact: function(contact){
+            //remove a value for the contacts array that equal the given paramter contact
             contacts.pop(contact);
         },
+        //creat a function
         printAllContactNames: function(){
+            //creat a empty string
         var str = '';
+        //loop through the contacts array
         for(let i = 0; i < contacts.length; i++){
+            //set str to equal to the curent value in contacts nameFrist and nameLast + a newline
             str += contacts[i].nameFirst + ' ' + contacts[i].nameLast + '\n';
         }
+        //remove the last newline from str when loop is done 
          str = str.slice(0, -1);
-       
+       //return str
        return str;
         }
     }

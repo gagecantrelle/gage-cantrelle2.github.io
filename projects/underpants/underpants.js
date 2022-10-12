@@ -595,8 +595,30 @@ _.some = function(coll, func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-
-
+_.reduce = function(arr, func, seed){
+    //creat tesult variable
+    let result;
+    //check if seed was given a value
+    if(seed === undefined){
+//set result to equal the frist value in the array
+result = arr[0];
+//loop through the given array(arr)
+for(let i = 1; i < arr.length; i++){
+    //set result equal to the return value of func
+    result = func(result, arr[i], i, arr);
+}
+    }else{
+        //set result to equal the given seed paramter
+        result = seed;
+        //loop through the given array(arr)
+for(let i = 0; i < arr.length; i++){
+    //set result equal to the return value of func
+    result = func(result, arr[i], i, arr);
+    }
+}
+//return result
+return result;
+}
 /** _.extend
 * Arguments:
 *   1) An Object
@@ -611,8 +633,11 @@ _.some = function(coll, func){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-_.extend = function(obj){
-    
+_.extend = function(...obj){
+  // set obj equal to mutiple given objects
+   obj = Object.assign(...obj);
+   //return obj
+   return obj;
 }
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
