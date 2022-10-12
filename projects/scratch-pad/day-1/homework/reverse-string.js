@@ -21,10 +21,15 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
+
+    //creat a empty string
     var reverse = '';
+    //loop through the input length backword
     for(let i = input.length -1; i >= 0; i--){
+      //add the curent character in the given input to reverse
 reverse += input[i];
     }
+    //return the reverse string
     return reverse;
     
     // YOUR CODE GOES ABOVE HERE //
