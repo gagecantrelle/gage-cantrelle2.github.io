@@ -160,8 +160,22 @@ for(let i = 0; i < array.length; i++){
 return count;
 }
 
-var friendsCount = function(){
-
+var friendsCount = function(array, name){
+    //create an empty array
+    var arr = [];
+    //loop through the given array
+    for(let i = 0; i < array.length; i++){
+       //loop through the friends array
+         for(let j = 0; j < array[i].friends.length; j++){
+             //check if curent value name in the friends list has the targeted name
+             if(array[i].friends[j].name === name){
+                //add curent value name to arr
+                arr.push(array[i].name);
+            }
+         }
+    }
+//return arr
+return arr;
 }
 
 var topThreeTags = function(){  //.sort, .slice, reduce?
