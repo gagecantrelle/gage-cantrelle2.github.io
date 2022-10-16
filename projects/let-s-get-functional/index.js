@@ -96,32 +96,15 @@ return young;
 }
 
 var averageBalance = function(array){ //use parseFloat() to change string to nember /// then use .replace(/[$,]/g, '')
-//creat an empty array
-var arr = [];
-//creat a total varaible
-var total;
-//creat a blance varaible
-var blance;
-//loop through the array
-for(let i = 0; i < array.length; i++){
-//creat a varaible that will hold the curent string
-var str = array[i].balance;
-//modify the string
-str = str.replace(/[$,]/g, '');
-//change string to number
-str = parseFloat(str);
-//add the number verson of str into arr
-arr.push(str);
-}
-//loop through arr
-for(let j = 0; j < arr.length; i++){
-    //add curent value to total
-    total += arr[j];
-}
-//find the balance in total
-blance = total / arr.length;
-//return balance
-return blance;
+//creat a varaible that hold the total of all combine balance from each array
+var balance = array.reduce(function(acc, cur){
+    //change the balande value from string to number then set num to equal the combie total of all balance value in the array
+    var num = acc += Number(cur.balance.replace(/[$,]/g, ''));
+    //return num
+    return num;
+}, 0)
+// return the average balnace
+return balance / array.length;
 }
 
 var firstLetterCount = function(array, letter){
@@ -178,13 +161,54 @@ var friendsCount = function(array, name){
 return arr;
 }
 
-var topThreeTags = function(){  //.sort, .slice, reduce?
-
+var topThreeTags = function(array){  //.sort, .slice, reduce?
+//creat a varaible that will hold an object that will hold how many time a tag is use for each tag
+var topthree = array.reduce(function(acc, cur){
+    //loop through the curent tags array
+for(let i = 0; i < cur.tags.length; i++){
+    //check if the tag is in the objec
+    if(acc[cur.tags[i]]){
+        //increase the curent tag value by 1
+        acc[cur.tags[i]] += 1;
+        //run if tag dose not exist in the object
+    }else{
+        //creat new tag in object and give it a value of 1
+        acc[cur.tags[i]] = 1;
+    }
+}
+//return object 
+return acc
+}, {});
+//creat a variable that holds the object but sorted
+var sorted = Object.fromEntries(
+    //chan the object to an array the sort by how many times that tag is called then change it bace to an object
+    Object.entries(topthree).sort(([,a],[,b]) => b-a));
+    //creat a variable that holds the top three tags
+var top3 = Object.keys(sorted).slice(0, 3);
+//return the top three tags
+return top3;
 }
 
-var genderCount = function(){
-
+//npm start --prefix ./gage-cantrelle2.github.io/projects/let-s-get-functional
+var genderCount = function(array){
+//creat an empty objet
+var obj = {};
+//loop through the array
+for(let i = 0; i < array.length; i++){
+//check the curent value gender
+    if(obj[array[i].gender]){
+        //increace it value by one
+        obj[array[i].gender] += 1;
+     //run is key dose not exist
+    }else{
+     //creat key and give it a value of one
+     obj[array[i].gender] = 1;
+    }
 }
+//return the object
+return obj;
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
