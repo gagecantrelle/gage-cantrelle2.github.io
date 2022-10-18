@@ -67,21 +67,12 @@ var range = function(x, y, arr=[]) {
     return arr;
   }
 if(x < y){
-  if(y < 0){
-   y += 1;
-   arr.unshift(y);
+   x += 1;
+   arr.push(x);
   }else{
-    y -= 1;
-    arr.unshift(y);
-  }
-}else{
-  if(x < 0){
-    x += 1;
+    x -= 1;
     arr.push(x);
-   }else{
-     x -= 1;
-     arr.push(x);
-   }
+ 
 }
 return range(x, y, arr);
 };
@@ -92,34 +83,52 @@ return range(x, y, arr);
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
-  if(exp === 0){
-    return 1;
+  if (exp < 0){
+    return exponent(base, exp + 1) / base;
   }
-  if(exp < 0){
-    return -base * exponent(base, exp + 1);
-  }else{
+  if (exp === 0){
+    return 1
+  }
+  else{
     return base * exponent(base, exp - 1);
   }
-};
+
+  }
+
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+if(n === 1){
+  return true;
+}else if(n < 1 || n === 0){
+  return false;
+}
+  return powerOfTwo(n / 2);
 };
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string, str='') {
   if(string.length === 0){    
-    return str[0].toLowerCase() + str.slice(1) + str[str.length -1].toUpperCase() + str.slice(str.length -1);
+    return str;
   }
-str += string[0].toLowerCase();
-return reverse(string.slice(1), str);
+str += string[string.length -1];
+return reverse(string.slice(0, string.length -1), str);
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+//create a shallow copy of string value
+let newStr = string.replaceAll(" ", '').toUpperCase();
+if (newStr[0] !== newStr[newStr.length - 1]){
+  return false;
+}
+if (newStr.length === 1){
+  return true;
+}
+return palindrome(newStr.slice([newStr.length - 1]).slice([0]))
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -134,6 +143,17 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
+  if(y === 0){
+    return 0;
+  }else if(y === 1){
+    return x;
+  }
+  
+if(y > 0){
+return x + multiply(x, y - 1);
+}else{
+  return -x + multiply(x, y + 1);
+}
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -263,20 +283,20 @@ var nthFibo = function(n, arr=[0,1,1,2,3,5,8,13,21,1,1,1,144]) {
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 var capitalizeWords = function(input, output=[]) {
-  if(input.lenght === 0){
-    return output;
+  if(input.length === 0){
+    return output
   }
-  output.push(input[0].toUpperCase());
-  return capitalizeWords(input.slice(1), output);
+output.push(input[0].toUpperCase());
+return capitalizeWords(input.slice(1), output)
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car', 'poop', 'banana']); // ['Car', 'Poop', 'Banana']
 var capitalizeFirst = function(array, output=[]) {
-  if(input.lenght === 0){
+  if(array.length === 0){
     return output;
   }
-  output.push(array[0].toUpperCase() + array.slice(1));
+  output.push(array[0].charAt(0).toUpperCase() + array[0].slice(1));
   return capitalizeFirst(array.slice(1), output);
 };
 
@@ -335,13 +355,59 @@ var minimizeZeroes = function(array) {
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+var alternateSign = function(array, arr=[]) {
+if(array.length === 0){
+return arr;
+}
+if(array[0] > 0 && array[1] < 0){
+  arr.push(array[0]);
+  arr.push(array[1]);
+}
+return alternateSign(array.slice(2), arr);
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+var numToText = function(str, line='') {
+  if(str.length === 0){
+    return line;
+  }
+  switch(str[0]){
+    case '1':
+      line += 'one';
+    break;
+    case '2':
+      line += 'two';
+    break; 
+    case '3':
+      line += 'three';
+    break;
+    case '4':
+      line += 'four';
+    break;
+    case '5':
+      line += 'five';
+    break;
+    case '6':
+      line += 'six';
+    break;
+    case '7':
+      line += 'seven';
+    break;
+    case '8':
+      line += 'eigth';
+    break;
+    case '9':
+      line += 'nine';
+    break;
+    case '10':
+      line += 'ten';
+    break;
+    default:
+      line += str[0];
+  }
+return numToText(str.slice(1), line);
 };
 
 // *** EXTRA CREDIT ***
