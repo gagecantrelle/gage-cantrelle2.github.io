@@ -2,8 +2,20 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
-
+function range(start, end, int) {
+  var arr = [];
+  if(start === end){
+    return arr;
+  }
+  if(int !== undefined){
+    for(let i = start; start < end; i += int){
+      arr.push(i);
+    }
+  }else{
+    for(let i = start; start < end; i++){
+      arr.push(i);
+  }
+return arr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
