@@ -336,20 +336,36 @@ return letterTally(str.slice(1), obj);
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list) {
+var compress = function(list, arr=[]) {
+if(list.length === 0){
+return arr;
+}
+if(arr[arr.length -1] !== list[0]){
+  arr.push(list[0]);
+}
+return compress(list.slice(1), arr);
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
 // itself.
 // Example: augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
 var augmentElements = function(array, aug) {
+
 };
 
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
-};
+var minimizeZeroes = function(array, list=[]) {
+  if(array.length === 0){
+    return list;
+    }
+    if(array[0] === 0 && array[1] === 0){
+      return minimizeZeroes(array.slice(1), list);
+    }
+    list.push(array[0]);
+    return minimizeZeroes(array.slice(1), list);
+    };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
 // their original sign.  The first number in the index always needs to be positive.
@@ -359,10 +375,14 @@ var alternateSign = function(array, arr=[]) {
 if(array.length === 0){
 return arr;
 }
-if(array[0] > 0 && array[1] < 0){
-  arr.push(array[0]);
-  arr.push(array[1]);
+if(array[0] < 0 ){
+array[0] *= -1; 
 }
+if(array[1] > 0 ){
+  array[1] *= -1; 
+  }
+arr.push(array[0]);
+arr.push(array[1]);
 return alternateSign(array.slice(2), arr);
 };
 
