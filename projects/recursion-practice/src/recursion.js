@@ -376,13 +376,16 @@ if(array.length === 0){
 return arr;
 }
 if(array[0] < 0 ){
-array[0] *= -1; 
+arr.push(array[0] * -1); 
+}else{
+  arr.push(array[0]);
 }
 if(array[1] > 0 ){
-  array[1] *= -1; 
+arr.push(array[1] * -1); 
+  }else{
+    arr.push(array[1]);
   }
-arr.push(array[0]);
-arr.push(array[1]);
+
 return alternateSign(array.slice(2), arr);
 };
 

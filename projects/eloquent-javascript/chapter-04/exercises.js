@@ -2,44 +2,64 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-//function range(start, end, int) {
-  //var arr = [];
-  //if(start === end){
-   // return arr;
-  //}
-  //if(int !== undefined){
-   // for(let i = start; start < end; i += int){
-   //   arr.push(i);
-  // }
-// }else{
- //   for(let i = start; start < end; i++){
- //     arr.push(i);
- // }
-//return arr;
-//}
+function range(start, end, int) {
+  var arr = [];
+  if(start === end){
+    return arr;
+  }
+  if(int !== undefined){
+    if(int < 0){
+      return arr;
+    }
+    for(let i = start; start <= end; i += int){
+      arr.push(i);
+   }
+ }else{
+   for(let i = start; start <= end; i++){
+     arr.push(i);
+ }
+ }
+return arr;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
-
+function sum(arr) {
+  //create a variable that will hold the total of all numbers in the given array
+  var total = 0;
+  //loop through given array
+  for(let i = 0; i < arr.length; i++){
+    //add the curent value into total
+    total += arr[i]; 
+  }
+return total;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
-
+function reverseArray(arr) {
+  //create a variable that will hold the given array in reverse
+  var reverse = [];
+//loop through the given array backword
+for(let i = arr.length -1; i >= 0; i--){
+ //puss the curent value in to reverse 
+  reverse.push(arr[i]);
+}
+//return the reverse array
+return reverse;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(arr) {
+//return the given array but reverse
+return arr.reverse();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -74,7 +94,7 @@ return listToArray(list.rest, arr);
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
+function prepend(value, func) {
 
 }
 
@@ -82,7 +102,14 @@ function prepend() {
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
+function nth(arr, target) {
+  //check if given targeted index has a value
+  if(arr[target] !== undefined){
+    //return the curent value in index
+    return arr[target];
+  }else{
+    return -1;
+  }
 
 }
 
