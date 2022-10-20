@@ -2,8 +2,19 @@
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function flatten() {
-
+function flatten(arr) {
+  //creat a varaible that holds all values in a single array
+  var all = []
+  //loop through arr
+  for(let i = 0; i < arr.length; i++){
+    //loop through the array in arr
+    for(let j = 0; j < arr[i].length; j++){
+      //push the curent array curent value in to all
+      all.push(arr[i][j]);
+    }
+  }
+  //return all
+  return all;
 }
 
 // /////////////////////////////////////////////////////////////////////////////
