@@ -191,20 +191,19 @@ return top3;
 
 //npm start --prefix ./gage-cantrelle2.github.io/projects/let-s-get-functional
 var genderCount = function(array){
-//creat an empty objet
-var obj = {};
-//loop through the array
-for(let i = 0; i < array.length; i++){
+//creat an object that hold hove many different genders there are
+var obj = array.reduce(function(acc, cur){
 //check the curent value gender
-    if(obj[array[i].gender]){
-        //increace it value by one
-        obj[array[i].gender] += 1;
-     //run is key dose not exist
-    }else{
-     //creat key and give it a value of one
-     obj[array[i].gender] = 1;
-    }
+if(acc[cur.gender]){
+    //increace it value by one
+    acc[cur.gender] += 1;
+ //run is key dose not exist
+}else{
+ //creat key and give it a value of one
+ acc[cur.gender] = 1;
 }
+return acc;
+}, {});
 //return the object
 return obj;
 }
