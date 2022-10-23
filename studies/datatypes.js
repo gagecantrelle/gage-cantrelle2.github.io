@@ -57,6 +57,7 @@ like: ["apple", "car"],
   }
   // can hold key collection
   //each collection can hold mutiple different values
+  //each key is given a name
 
   //6
   function test(up){
@@ -67,7 +68,7 @@ like: ["apple", "car"],
   //give the parameter a value or varaible(num1).
 
   //7
-  var und;
+  var undefind;
   // a value that appear when a varaible has no data/value
 
   //8

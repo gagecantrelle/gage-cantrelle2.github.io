@@ -84,7 +84,7 @@ function test6(array, func){
 return func(array);
 
 }
-var t6 = function(arr){
+var t6 = function(arr){   // can also access varaibles out side the function
     for(let i = 0; i < arr.length; i++){
        console.log(i); 
     }

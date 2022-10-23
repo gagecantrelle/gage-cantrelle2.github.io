@@ -15,8 +15,8 @@
   var test1 = 1;
   if(test1 === 1){         //test if test1 that has a value of 1 is equal to 1
     console.log(test1); //print 1 if statement is true
-  }else{
-    console.log("error"); // print error if statement is false
+  }else{    //will run if statement is false
+    console.log("error"); // print error 
   }
 
   //Else-if statement
@@ -25,8 +25,8 @@
     console.log(test2); //print 1 if statement is true
   }else if(test2 === 1){ //if the frist if statement return false then this if statement will run, testing if test2 is equal to 1 
     console.log(test2) //print 2 if statement is true
-  }else{
-    console.log("error"); // print error if all If statements are false
+  }else{   // will run if all If statements are false
+    console.log("error"); // print error 
   }
   //Else-if will run if the frist if statement come back as false, then check if the value is equal to it's condition. this statements can be used mutiple times
   // but, it not helpfull if your testing a value that has too many conditions.
