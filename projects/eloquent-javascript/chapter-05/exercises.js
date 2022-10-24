@@ -52,8 +52,14 @@ return istrue;
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(str) {
+  let counted = countBy(str, char => {
+    let charscript = characterScript(char.codePointAt(0));
+    return charscript ? charscript.direction : "none";
+  }).filter(({name}) => name != "none");
+  if (counted.length == 0) return "ltr";
 
+  return counted.reduce((a, b) => a.count > b.count ? a : b).name;
 }
 
 // /////////////////////////////////////////////////////////////////////////////
