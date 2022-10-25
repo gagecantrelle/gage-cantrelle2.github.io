@@ -53,13 +53,25 @@ return istrue;
 // /////////////////////////////////////////////////////////////////////////////
 
 function dominantDirection(str) {
-  let counted = countBy(str, char => {
-    let charscript = characterScript(char.codePointAt(0));
-    return charscript ? charscript.direction : "none";
-  }).filter(({name}) => name != "none");
-  if (counted.length == 0) return "ltr";
-
-  return counted.reduce((a, b) => a.count > b.count ? a : b).name;
+//create two arrays to store occurencer of ltr rtl
+let ltr = [];
+let rtl = [];
+//iterate through the input string
+for(let i = 0; i < str.length; i++){
+  let script = characterScript(str.charCodeAt(i));
+if(script !== null){
+  if(script.direction === 'ltr'){
+    ltr.push(script);
+  }else{
+    rtl.push(script);
+  }
+}
+}
+if(ltr.length > rtl.length){
+return 'ltr';
+}else{
+  return 'rtl';
+}
 }
 
 // /////////////////////////////////////////////////////////////////////////////
