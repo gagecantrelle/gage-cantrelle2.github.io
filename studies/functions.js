@@ -58,22 +58,29 @@ function test4(){
 console.log(test4()); //print 6
 
 // The function scope can edit other varaible outside the function by accessing/ressign variables from a paraent scope. we can also creat a 
-//varaible in side the function that will hold a edited value of an gobal varaible. we then can return the varaible created inside the 
-//function as a value. Then set the gobal varaible that was given to the function as the return value
+//varaible in side the function that will hold a edited value of an gobal varaible. then depending on where the varibale is created we can 
+//return that edit varaible. if the varaible was created in side the function/function-scope then we can't access it from out side of the function scope
+//. that varaible will only be access by other lines of code that are in the same function scope as it.
 
 var a = 1;
 function test5(){
   a += 1;
+  var b = 3;
 }
 console.log(a); // print 2
-
+console.log(b); // give reference erroe
 
 //function Closures
 //Functions form closure around the code the hold ( {} ). when a function return a value and is stored some where the code in the
 //function will sill exist
-function t(){
-
+function t(num){
+    var a = num;
+    return(function(){ // this function can access the paramters from it parent function
+    return a + 1;
+    })
 }// closure
+console.log(t(1)); //print 2
+
 
 //High-order functions
 //a function inside a function

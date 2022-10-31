@@ -80,6 +80,25 @@ like: ["apple", "car"],
   console.log(times);
   //a value that appers when a output is expextion a number, but is given a differnt value insted
 
+//copy by value / reference
+//when assigning a varaible a value from another it is copy by value or reference
+
+var a = 'a';
+var A = a; // A is copying by value
+//when copy by value it will have no contactions to the orginal varaible
+
+var b = ['b'];
+var B = b; //copying by refence
+//when copy by refence it will have a contactions to the orginal varaible, allowing the orginal varaible to be change
+B[0] = 'B';
+console.log(b)// print B
+//since an array is complex datatype it can hold mutiple lines of value, mutiple values, or both
+// the same as an object.
+var c = { str: 'c' };
+var C = c;
+C.str = 'C';
+console.log(c.str); // print C
+
 /**
 * infint numbers
 * 
@@ -94,3 +113,4 @@ var inftest1 = typeof Infinity;
 var inftest2 = typeof -Infinity;
 console.log(inftest1); //print number
 console.log(inftest2); //print number
+

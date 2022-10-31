@@ -81,6 +81,11 @@ function calltest(value){
     console.log(isfalse); // print false
    }
    console.log(isfalse); // prints false   
+   isfalse = true;
+   console.log(isfalse); // print true
+
+   // the varaible isfalse is created in the if statement, but it can still be called or used out side of the if statement. but it was created in a function
+   //it can that varaible can only be used in the function it was created in
 
 //2. let is a varaible that acts like a block scope. Meaning that it value can be reassign in a the block/Curly brackes and be reassign a value by calling it.
   //1
